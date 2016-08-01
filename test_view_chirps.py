@@ -1,3 +1,6 @@
+import test
+
+
 View Chirps
 
 '''Chirps are separated into public and private chirps. Only the two users involved in a private chirp can see it in their Private Chirps section.'''
@@ -13,3 +16,6 @@ View Chirps
 ...
 9. Main Menu
 >
+
+if __name__ == '__main__':
+    unittest.main()

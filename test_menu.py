@@ -11,3 +11,6 @@ import test
 5. Private Chirp
 
 6. Exit
+
+if __name__ == '__main__':
+    unittest.main()

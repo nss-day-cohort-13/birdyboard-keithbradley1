@@ -1,3 +1,5 @@
+import test
+
 New Chirp
 
 Users can chirp publicly or they can start a private chirp with another user.
@@ -17,3 +19,6 @@ Chirp at
 
 Enter chirp text
 >
+
+if __name__ == '__main__':
+    unittest.main()
