@@ -1,16 +1,28 @@
 import test
+from menu import *
 
-1. New User Account
+#################### menu tests ####################
 
-2. Select User
+class TestMenu(unittest.TestCase):
+  '''test for menu otions'''
 
-3. View Chirps
+  @classmethod
+  def setUpClass(self):
+    pass
 
-4. Public Chirp
+  def test_new_user_account(self):
+    bob = new_user('uuid', 'bob')
+  def test_select_user(self):
+    bob = select_user('uuid', 'bob')
+  def test_view_chirps(self):
+    chirp = view_chirp('uuid', 'chirp')
+  def test_public_chirp(self):
+    chirp = public_chirp('uuid', 'public_chirp')
+  def test_private_chirp(self):
+    chirp = private_chirp('uuid', 'private_chirp')
+  def test_exit(self):
+    exit = exit('uuid', 'bob')
 
-5. Private Chirp
-
-6. Exit
 
 if __name__ == '__main__':
     unittest.main()

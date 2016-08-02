@@ -1,24 +1,25 @@
 import test
+from menu import *
 
-New Chirp
+#################### new chirp tests ####################
 
-Users can chirp publicly or they can start a private chirp with another user.
+class TestNewChirp(unittest.TestCase):
+  '''Users can chirp publicly or they can start a private chirp with another user.
+'''
 
-Public
+  @classmethod
+  def setUpClass(self):
+    pass
 
-Enter chirp text
->
-Private
+  def test_is new_chirp_public(self):
+    bob = is_new_chirp_public('uuid', 'chirp')
+  def test_is_new_chirp_private(self):
+    chirp = is_new_chirp_private('uuid', 'chirp')
+  def test_select_menu(self):
+    menu = did_user_select_menu()
+  def test_did_user_enter_text(self):
+    text = did_user_enter_text('uuid', 'chirp')
 
-Chirp at
-1. BiffBoffin
-2. Lara_keet
-...
-9. Cancel
->
-
-Enter chirp text
->
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,13 +1,18 @@
 import test
+from menu import *
 
+#################### select user tests ####################
 
-Select User
+class TestSelectUser(unittest.TestCase):
+  '''Which user is chriping?'''
 
-Which user is chriping?
-1. Tweedleedee
-2. BiffBoffin
-...
->
+  @classmethod
+  def setUpClass(self):
+    pass
+
+  def test_which_user_is_chirping(self):
+    bob = which_user_is_chirping('uuid', 'bob')
+
 
 if __name__ == '__main__':
     unittest.main()

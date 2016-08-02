@@ -1,12 +1,22 @@
 import test
+from menu import *
 
-new_user
+#################### new user tests ####################
 
-test_Enter_full_name
->
+class TestNewUser(unittest.TestCase):
+  '''test for new user creation'''
 
-Enter screen name
->
+  @classmethod
+  def setUpClass(self):
+    pass
+
+  def test_new_user_account(self):
+    bob = new_user('uuid', 'bob')
+  def test_enter_full_name(self):
+    bob = enter_full_name('uuid', 'bob')
+  def test_enter_screen_name(self):
+    bob = enter_screen_name('uuid', 'bob')
+
 
 if __name__ == '__main__':
     unittest.main()
