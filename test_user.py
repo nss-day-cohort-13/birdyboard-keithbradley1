@@ -14,7 +14,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user.screen_name, 'drink_koolaid')
 
     def test_next_user_id_increments(self):
-        User.next_user = 1
+        User.next_user_id = 1
 
         User('Jim Jones',
                  'drink_koolaid')
@@ -22,7 +22,7 @@ class TestUser(unittest.TestCase):
         User('Joan Jett',
                  'bad_reputation')
 
-        self.assertEqual(User.next_user_id, 4)
+        self.assertEqual(User.next_user_id, 3)
 
 
 

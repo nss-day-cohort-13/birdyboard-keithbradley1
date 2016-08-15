@@ -6,17 +6,17 @@ from Chirp import *
 class TestChirp(unittest.TestCase):
 
     def test_create_chirp(self):
-        chirp = Chirp('hi', 'hi turd')
+        chirp = Chirp('hi', 'hi there')
 
         self.assertNotEqual(chirp.id, 0)
         self.assertEqual(chirp.name, 'hi')
-        self.assertEqual(chirp.message, 'hi turd')
+        self.assertEqual(chirp.message, 'hi there')
 
 
     def test_next_product_id_increments(self):
         Chirp.next_chirp_id = 1
 
-        chirp = Chirp('hi', 'hi turd')
+        chirp = Chirp('hi', 'hi there')
 
         self.assertEqual(Chirp.next_chirp_id, 2)
 
