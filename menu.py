@@ -21,10 +21,9 @@ class Menu:
             menu = {
                 '1. Create a user account': self.prompt_user,
                 '2. Choose active user': self.prompt_choose_user,
-                '3. Create a payment option': self.prompt_create_payment,
-                '4. Add product to shopping cart': self.prompt_add_product,
-                '5. Complete an order': self.prompt_complete_order,
-                '6. See product popularity': self.print_popular_products,
+                '3. Create a chirp': self.prompt_create_chirp,
+                '5. Create a reply': self.prompt_create_reply,
+                '6. See all chirps': self.print_all_chirps,
                 '7. Exit Birdyboard!': exit
             }
 
@@ -37,12 +36,9 @@ class Menu:
         self.clear_menu()
 
         name = prompt('Enter user Name')
-        address = prompt('Enter Street Name')
-        city = prompt('Enter City')
-        state = prompt('Enter State')
-        zipcode = prompt('Enter Zip Code')
-        phone = prompt('Enter Phone Number')
-        self.bang.create_new_user(name, address, city, state, zipcode, phone)
+        screen_name = prompt('Enter screen_name')
+
+        self.bang.create_new_user(name, screen_name)
 
         print('Your new user has been created')
         pause()
