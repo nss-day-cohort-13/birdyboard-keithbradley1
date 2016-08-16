@@ -61,12 +61,12 @@ class Menu:
             pause('You must choose a user account first')
             return
 
-        payment_type = prompt('Enter Payment Type (e.g. AmEx, Visa, Checking)')
-        account_number = prompt('Enter Account Number')
-        self.bird.create_new_payment(payment_type, account_number, self.bird.active_user_id)
+        chirp_type = prompt('Enter Chirp Type (e.g. Public or Private)')
+        chirp_title = prompt('Enter Account Number')
+        self.bird.create_new_chirp(chirp_type, chirp_title, self.bird.active_user_id)
 
-        print('New Payment Option created as {} with account number {}'
-            .format(payment_type, account_number))
+        print('New chirp created as {} with title {}'
+            .format(chirp_type, chirp_title))
         pause()
 
 
@@ -79,16 +79,16 @@ class Menu:
 
     def print_all_chirps(self):
         self.clear_menu()
-        popular = self.bird.get_all_chirps()
-        products = popular['products']
-        totals = popular['totals']
+        all_chirps = self.bird.get_all_chirps()
+        public_chirps = all_chirps['public_chirps']
+        view_all_chirps = all_chirps['view_all_chirps']
 
         # column widths
-        products_col_width = 18
+        public_chirps_col_width = 18
         orders_col_width = 11
         users_col_width = 11
         revenue_col_width = 15
-        total_width = (products_col_width +
+        total_width = (public_chirps_col_width +
                        orders_col_width +
                        users_col_width +
                        revenue_col_width)
@@ -99,17 +99,16 @@ class Menu:
 
         print('\033[36m' + title_string.format('Product', 'Orders', 'users', 'Revenue'))
         print('\033[34m*\033[37m' * total_width)
-        for p in products:
+        for p in public_chirps:
             name = p['name']
             # limit name string length
             name = (name if len(name) <= 17 else name[:14] + '...') + ' '
-            orders = p['order_count']
             users = p['user_count']
             revenue = p['revenue']
             print(line_string.format(name, orders, users, revenue))
         print('\033[34m*\033[37m' * total_width)
         print(line_string.format(
-            '\033[36mTotals:\033[37m', totals['order_sum'], totals['user_sum'], totals['revenue_sum']))
+            '\033[36mTotals:\033[37m', view_all_chirps['order_sum'], view_all_chirps['user_sum'], view_all_chirps['revenue_sum']))
 
         # wait to continue
         pause()
