@@ -22,9 +22,9 @@ class Menu:
                 '1. Create a user account': self.prompt_user,
                 '2. Choose active user': self.prompt_choose_user,
                 '3. Create a chirp': self.prompt_create_chirp,
-                '5. Create a reply': self.prompt_create_reply,
-                '6. See all chirps': self.print_all_chirps,
-                '7. Exit Birdyboard!': exit
+                '4. Create a reply': self.prompt_create_reply,
+                '5. See all chirps': self.print_all_chirps,
+                '6. Exit Birdyboard!': exit
             }
 
             prompt_message = 'Choose an option'
