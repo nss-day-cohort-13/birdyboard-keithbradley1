@@ -1,4 +1,5 @@
 from birdyboard import *
+
 from prompt import *
 
 class Menu:
@@ -72,7 +73,7 @@ class Menu:
 
     def prompt_create_reply(self):
         self.clear_menu()
-        if self.bird.active_order_id == 0:
+        if self.bird.active_user_id == 0:
             pause('You can write a reply')
             return
 
