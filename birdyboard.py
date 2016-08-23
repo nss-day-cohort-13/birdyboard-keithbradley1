@@ -2,7 +2,6 @@ from easy_io import *
 from Chirp import *
 from User import *
 from Conversation import *
-from Reply import *
 
 class Birdyboard(object):
   '''
@@ -28,15 +27,12 @@ class Birdyboard(object):
 
     self.users = deserialize(Birdyboard.user_filename, dict())
     self.chirps = deserialize(Birdyboard.chirps_filename, dict())
-    self.conversation = deserialize(Birdyboard.conversation_filename, dict())
 
     User.next_user_id = len(self.users) + 1
     Chirp.next_chirp_id = len(self.chirps) + 1
-    reply.next_conversation_id = len(self.conversation) + 1
 
     self.active_user_id = 0
     self.active_chirp_id = 0
-    self.active_conversation_id = 0
 
 
 
@@ -49,11 +45,12 @@ class Birdyboard(object):
     """
 
     new_user = User(name, screen_name)
-    self.user[new_user.id] = new_user
-    serialize(self.user, Birdyboard.user_filename)
+    self.users[new_user.id] = new_user
+    serialize(self.users, Birdyboard.user_filename)
+    return new_user
 
 
-  def create_new_chirp(self, chirp_title, message, user_id):
+  def create_new_chirp(self, message):
     """
     Add a new chrip to the chirp dictionary
     Arguments:
@@ -62,9 +59,9 @@ class Birdyboard(object):
         user_id     new chirps's user_id
     """
 
-    new_chirp = Chirp(chirp_title, message, user_id)
-    self.chirp[new_chirp.id] = new_chirp
-    serialize(self.chirp, Birdyboard.chirp_filename)
+    new_chirp = Chirp(message, user_id)
+    self.chirps[new_chirp.id] = new_chirp
+    serialize(self.chirps, Birdyboard.chirp_filename)
 
   def select_active_user(self, user_id):
       """
@@ -75,18 +72,17 @@ class Birdyboard(object):
 
       self.active_user_id = user_id
 
-  def create_a_reply(user_id, chirp_id):
+  def print_all_chrips(chirp_id, user_id):
     '''
-    Create a reply chirp, add it to conversation dictionary
+    show all chirps
     Arguments:
-      user_id the id of the active user
-      chirp_selected_id the id of the selected chirp (replied to chirp)
+      chirp_id
+      user_id
     '''
-    if self.active_conversation_id == 0:
-      new_reply = Conversation(user_id, chirp_selected_id=0, is_created=False)
-      self.conversation[new_conversation.id] = new_reply
-      self.active_reply_id = new_reply.id
-      serialize(self.conversation, Birdyboard.conversation_filename)
+    print_all_chrips = Chirp
+
+
+
 
 
 
