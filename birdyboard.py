@@ -50,7 +50,8 @@ class Birdyboard(object):
     return new_user
 
 
-  def create_new_chirp(self, message):
+  def create_new_chirp(self, message, user_id):
+    # I may not need these arguments in this method
     """
     Add a new chrip to the chirp dictionary
     Arguments:
@@ -61,7 +62,7 @@ class Birdyboard(object):
 
     new_chirp = Chirp(message, user_id)
     self.chirps[new_chirp.id] = new_chirp
-    serialize(self.chirps, Birdyboard.chirp_filename)
+    serialize(self.chirps, Birdyboard.chirps_filename)
 
   def select_active_user(self, user_id):
       """

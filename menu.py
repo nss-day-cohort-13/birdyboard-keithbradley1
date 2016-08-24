@@ -64,7 +64,7 @@ class Menu:
 
         self.bird.create_new_chirp(message, user_id)
 
-        print('Your new chrip says' + message)
+        print('Your new chrip says ' + message)
         pause()
 
 
